@@ -1,17 +1,21 @@
 stock = []
 
 #FUNÇÕES
+
 #adicionar produto
 def add_product(product):
     stock.append(product)
-    print("Product {product} added succesfully!\n")
+    print(f"Product {product} added succesfully!\n")
+
 #remover produto    
-def remove_product(product):
-    if product in stock:
-        stock.remove(product)
-        print("Product removed succesfully!\n")
-    else:
-        print("Product not found\n")
+def remove_product(product_name):
+    for product in stock:
+        if product ["name"].lower() == product_name.lower():
+            stock.remove(product)
+            print(f"Product {product_name} removed succesfully!\n")
+            return
+    print("Product not found\n")
+
 #Listar produtos
 def list_products():
     if stock:
@@ -29,7 +33,14 @@ def menu():
         print("\n[1]Add product\n[2]Remove product\n[3]List products\n[4]Exit")
         option = (input("Please choose an option: "))
         if option == "1":
-            product = input("Enter the name of the product: ")
+            product_name = input("Enter the name of the product: ")
+            product_brand = input("Enter the product brand: ")
+            product_quantity = input("Type the amount: ")
+            product = {
+                "name": product_name,
+                "brand": product_brand,
+                "amount":product_quantity
+            }
             add_product(product)
         elif option =='2':
             product = input ("Enter the name of the product you want to remove: ")

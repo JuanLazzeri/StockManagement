@@ -39,7 +39,7 @@ def menu():
             product = {
                 "name": product_name,
                 "brand": product_brand,
-                "amount":product_quantity
+                "quantity":product_quantity
             }
             add_product(product)
         elif option =='2':
